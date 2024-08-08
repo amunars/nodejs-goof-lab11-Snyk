@@ -7,12 +7,16 @@
     "type": "git",
     "url": "https://github.com/Snyk/snyk-todo-list-demo-app/"
   },
+  "resolutions": {
+    "dustjs-linkedin": "2.6.3"
+  },
   "scripts": {
     "dev": "NODE_OPTIONS=--openssl-legacy-provider nodemon ./app.js",
     "start": "NODE_OPTIONS=--openssl-legacy-provider node app.js",
     "build": "browserify -r jquery > public/js/bundle.js",
     "cleanup": "mongo express-todo --eval 'db.todos.remove({});'",
-    "test": "snyk test"
+    "test": "snyk test",
+    "preinstall": "npx npm-force-resolutions"
   },
   "dependencies": {
     "adm-zip": "0.5.2",
@@ -20,7 +24,7 @@
     "cfenv": "^1.2.4",
     "consolidate": "0.14.5",
     "dustjs-helpers": "1.5.0",
-    "dustjs-linkedin": "3.0.1",
+    "dustjs-linkedin": "^2.7.5",
     "ejs": "3.1.10",
     "ejs-locals": "1.0.2",
     "errorhandler": "1.4.3",
